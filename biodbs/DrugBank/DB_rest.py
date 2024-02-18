@@ -3,7 +3,7 @@ from biodbs.utils import get_rsp
 from biodbs.pubchem._params import *
 
 
-class PUGRestAPI(BaseAPI):
+class DBRestAPI(BaseAPI):
     def __init__(self):
         super().__init__()
         self._url_format = "https://api.drugbank.com/discovery/v1" \
@@ -12,7 +12,7 @@ class PUGRestAPI(BaseAPI):
 
 class Fetcher:
     def __init__(self, domain):
-        self._api = PUGRestAPI()
+        self._api = DBRestAPI()
         self._api.update_params(domain=domain)
         self._valid_ns = PUBRESTNameSpace(domain=domain)
         self._valid_ops = PUBRESTOperation(domain=domain)
